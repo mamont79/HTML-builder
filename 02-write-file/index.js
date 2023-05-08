@@ -16,6 +16,10 @@ stdin.on('data', data =>{
   }
 });
 
+process.addListener('SIGINT', ()=> {
+  process.exit();
+});
+
 process.on('exit', ()=> {
   console.log('Done, bye( \n');
   process.exit();
