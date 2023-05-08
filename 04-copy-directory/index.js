@@ -3,12 +3,13 @@ const path = require('path');
 const way = path.join(__dirname, 'files');
 const newWay = path.join(__dirname, 'files-copy');
 
-
+fs.mkdir(newWay, () => { console.log('Папка успешно создана') });
 
 fs.stat(newWay, err => {
   if(err) {
     fs.mkdir(newWay, () => { console.log('Папка успешно создана') });
   } 
+    
 });
 
 fs.readdir(newWay, function(err, items) {
@@ -21,7 +22,6 @@ fs.readdir(newWay, function(err, items) {
     }
 
     console.log(delList);
-
   }
 });
 
@@ -34,6 +34,7 @@ fs.readdir(way, function(err, items) {
   }
   console.log(copyList);
 })
+
 
 
 
