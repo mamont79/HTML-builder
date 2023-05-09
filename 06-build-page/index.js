@@ -27,11 +27,11 @@ fs.readFile(path.join(__dirname, 'template.html'), 'utf-8', function(error, file
 
   for (let i = 0; i < htmlItems.length; i++) {
     if(htmlItems[i] == "header") {
-      fs.readFile(path.join(__dirname, 'components', 'header.html'), 'utf-8', function(error, fileContent){
-        if(error) throw error; 
-        htmlFile = (htmlFile + "\n" + fileContent) + "\n" + htmlItems[i+1];
-        console.log("add header");
-      });
+        fs.readFile(path.join(__dirname, 'components', 'header.html'), 'utf-8', function(error, fileContent){
+          if(error) throw error; 
+          htmlFile = (htmlFile + "\n" + fileContent) + "\n" + htmlItems[i+1];
+          console.log("add header");
+        });
     } else if(htmlItems[i] == "footer") {
       fs.readFile(path.join(__dirname, 'components', 'footer.html'), 'utf-8', function(error, fileContent){
         if(error) throw error; 
@@ -43,15 +43,20 @@ fs.readFile(path.join(__dirname, 'template.html'), 'utf-8', function(error, file
         });
       });
     } else if(htmlItems[i] == "articles") {
-      fs.readFile(path.join(__dirname, 'components', 'articles.html'), 'utf-8', function(error, fileContent){
-        if(error) throw error; 
-        htmlFile = (htmlFile + "\n" + fileContent) + "\n" + htmlItems[i+1];
-        console.log("add main");
-      });
+        fs.readFile(path.join(__dirname, 'components', 'articles.html'), 'utf-8', function(error, fileContent){
+          if(error) throw error; 
+          htmlFile = (htmlFile + "\n" + fileContent) + "\n" + htmlItems[i+1];
+          console.log("add main");
+        });
+    } else if(htmlItems[i] == "about") {
+        fs.readFile(path.join(__dirname, 'components', 'about.html'), 'utf-8', function(error, fileContent){
+          if(error) throw error; 
+          htmlFile = (htmlFile + "\n" + fileContent) + "\n" + htmlItems[i+1];
+          console.log("add about");
+        });
     }
-    
   }
-  //console.log(htmlFile);
+  //console.log(htmlItems);
 });
 
 
